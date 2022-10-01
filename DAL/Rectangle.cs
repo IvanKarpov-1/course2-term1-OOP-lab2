@@ -118,14 +118,7 @@ namespace DAL
 
         private int CompareTo_Help(object obj)
         {
-            var temp = this.CalculateArea() - ((Rectangle)obj).CalculateArea();
-
-            if (temp < 0)
-            {
-                return -1;
-            }
-
-            return temp == 0 ? 0 : 1;
+            return (int)(CalculateArea() - ((Rectangle)obj).CalculateArea());
         }
     }
 }

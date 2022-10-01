@@ -25,7 +25,8 @@ namespace BLL
 
         public Rectangle Find(Rectangle rectangle)
         {
-            return (Rectangle)_rectangles[_rectangles.IndexOf(rectangle)];
+            var temp = _rectangles.IndexOf(rectangle);
+            return temp == -1 ? null : (Rectangle)_rectangles[temp];
         }
 
         public IEnumerator GetEnumerator()

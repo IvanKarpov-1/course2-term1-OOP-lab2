@@ -218,7 +218,8 @@ namespace BLL
                     }
                     else
                     {
-                        yield return node.Data; node = null;
+                        yield return node.Data; 
+                        node = null;
                     }
                 }
                 else
