@@ -1,0 +1,108 @@
+﻿namespace PL
+{
+    partial class BinaryTreePresenter
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.Image = new System.Windows.Forms.PictureBox();
+            this.btn_refresh = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.btn_add = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.Image)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // Image
+            // 
+            this.Image.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Image.Location = new System.Drawing.Point(-1, -2);
+            this.Image.Name = "Image";
+            this.Image.Size = new System.Drawing.Size(921, 614);
+            this.Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Image.TabIndex = 0;
+            this.Image.TabStop = false;
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_refresh.Location = new System.Drawing.Point(926, 559);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(112, 40);
+            this.btn_refresh.TabIndex = 1;
+            this.btn_refresh.Text = "Оновити";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_delete.Location = new System.Drawing.Point(926, 489);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(112, 40);
+            this.btn_delete.TabIndex = 2;
+            this.btn_delete.Text = "Видалити";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            // 
+            // btn_add
+            // 
+            this.btn_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_add.Location = new System.Drawing.Point(926, 443);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(112, 40);
+            this.btn_add.TabIndex = 3;
+            this.btn_add.Text = "Додати";
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
+            // BinaryTreePresenter
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1050, 611);
+            this.Controls.Add(this.btn_add);
+            this.Controls.Add(this.btn_delete);
+            this.Controls.Add(this.btn_refresh);
+            this.Controls.Add(this.Image);
+            this.Name = "BinaryTreePresenter";
+            this.Text = "BinaryTreePresenter";
+            this.Load += new System.EventHandler(this.PaintTree);
+            this.Shown += new System.EventHandler(this.PaintTree);
+            ((System.ComponentModel.ISupportInitialize)(this.Image)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.PictureBox Image;
+        private System.Windows.Forms.Button btn_refresh;
+        private System.Windows.Forms.Button btn_delete;
+        private System.Windows.Forms.Button btn_add;
+    }
+}
