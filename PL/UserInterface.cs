@@ -55,9 +55,6 @@ namespace PL
             ConsoleWorker.ReadKey();
 
             RunForm();
-
-            ConsoleWorker.ReadKey();
-            ConsoleWorker.WriteItem($"\n{_collectionsWorker.GetBinaryTree()}");
         }
 
         public void ShowAllCollections()
