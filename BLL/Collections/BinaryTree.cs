@@ -7,6 +7,7 @@ namespace BLL
     public class BinaryTree<T> : IEnumerable<T>, IMyCollection<T> where T : class, IComparable<T>, IComparable
     {
         public TreeNode<T> RootNode { get; private set; }
+        public int Count { get; private set; } = 0;
 
         public void Add(T data)
         {
@@ -47,6 +48,8 @@ namespace BLL
                 }
                 currentNode = currentNode.RightNode;
             }
+
+            Count++;
         }
 
         public T Find(T data)
@@ -108,6 +111,7 @@ namespace BLL
                     node.RightNode = bufRightRight;
                     node.LeftNode = bufRightLeft;
                     Add(bufLeft, node);
+                    Count--;
                 }
                 else if (node.LeftNode != null)
                 {
@@ -122,6 +126,10 @@ namespace BLL
                     node.RightNode.ParentNode = null;
                     node.RightNode = null;
                     RootNode = bufRight;
+                }
+                else
+                {
+                    RootNode = null;
                 }
             }
             else if (node.LeftNode == null && node.RightNode == null)
@@ -174,6 +182,7 @@ namespace BLL
                         node.ParentNode.LeftNode = node.RightNode;
                         node.RightNode.ParentNode = node.ParentNode;
                         Add(node.LeftNode, node.RightNode);
+                        Count--;
                         break;
                     }
                     case Side.Right:
@@ -181,6 +190,7 @@ namespace BLL
                         node.ParentNode.RightNode = node.RightNode;
                         node.RightNode.ParentNode = node.ParentNode;
                         Add(node.LeftNode, node.RightNode);
+                        Count--;
                         break;
                     }
                     default:
@@ -192,10 +202,13 @@ namespace BLL
                         node.RightNode = bufRightRight;
                         node.LeftNode = bufRightLeft;
                         Add(bufLeft, node);
+                        Count--;
                         break;
                     }
                 }
             }
+
+            Count--;
         }
 
         public IEnumerable<T> PostOrder()

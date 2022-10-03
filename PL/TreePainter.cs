@@ -16,6 +16,12 @@ namespace PL
 
         public Image Draw(out int center, TreeNode<Rectangle> treeNode)
         {
+            if (treeNode == null)
+            {
+                center = 0;
+                return new Bitmap(500, 500);
+            }
+
             var leftCenter = 0;
             var rightCenter = 0;
 

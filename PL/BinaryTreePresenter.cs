@@ -21,10 +21,22 @@ namespace PL
         private void PaintTree(object sender, EventArgs e)
         {
             PaintTree();
+            ShowCount();
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
+            var count = _binaryTree.Count;
+
+            for (var i = 0; i < count; i++)
+            {
+                _binaryTree.Delete();
+            }
+            for (var i = 0; i < 5; i++)
+            {
+                _binaryTree.Add(new Rectangle());
+            }
+
             PaintTree();
         }
 
@@ -43,7 +55,12 @@ namespace PL
         {
             Image.Image = _treePainter.Draw(out _, _binaryTree.RootNode);
             Image.Refresh();
+            ShowCount();
         }
 
+        private void ShowCount()
+        {
+            count.Text = _binaryTree.Count.ToString();
+        }
     }
 }
