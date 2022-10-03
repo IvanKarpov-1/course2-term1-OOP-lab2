@@ -19,6 +19,12 @@ namespace BLL
             _rectangles.RemoveAt(_rectangles.Count - 1);
         }
 
+        public void Delete(int index)
+        {
+            if (index >= _rectangles.Count) return;
+
+            _rectangles.RemoveAt(index);
+        }
         public void Refresh()
         {
             _rectangles.Sort();

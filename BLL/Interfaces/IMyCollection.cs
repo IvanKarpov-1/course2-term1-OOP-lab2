@@ -7,6 +7,7 @@ namespace BLL
     {
         void Add(Rectangle rectangle);
         void Delete();
+        void Delete(int index);
         Rectangle Find(Rectangle rectangle);
     }
 

@@ -24,6 +24,13 @@ namespace BLL
             _rectangles = _rectangles.Take(_rectangles.Length - 1).ToArray();
         }
 
+        public void Delete(int index)
+        {
+            if (index >= _rectangles.Length) return;
+
+            _rectangles = _rectangles.Take(index).ToArray();
+        }
+
         public void Refresh()
         {
             Array.Sort(_rectangles);

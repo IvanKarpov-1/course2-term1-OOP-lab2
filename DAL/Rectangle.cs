@@ -94,7 +94,7 @@ namespace DAL
         {
             return
                 $"Прямокутник зі сторонами {SideAB,-6:F2} та {SideBC,-6:F2}, " +
-                $"кольором заповнення - {FillColor} та контуру - {BorderColor}";
+                $"кольором заповнення - {FillColor} та контуру - {BorderColor}. Площа: {CalculateArea()}";
         }
 
         public override bool Equals(object obj)

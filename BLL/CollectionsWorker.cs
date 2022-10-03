@@ -9,7 +9,7 @@ namespace BLL
         private readonly GenericCollection _genericCollection;
         private readonly OrdinaryArray _ordinaryArray;
         private readonly BinaryTree<Rectangle> _binaryTree;
-        private readonly Rectangle _rectangleToFind;
+        private Rectangle _rectangleToFind;
 
 
         public CollectionsWorker(NonGenericCollection nonGenericCollection, GenericCollection genericCollection, OrdinaryArray ordinaryArray, BinaryTree<Rectangle> binaryTree)
@@ -20,6 +20,8 @@ namespace BLL
             _binaryTree = binaryTree;
             _rectangleToFind = new Rectangle("#FFAB34", "#123456", 10, 5.3);
         }
+
+        #region Get
 
         public string GetNonGenericCollection()
         {
@@ -52,6 +54,10 @@ namespace BLL
 
             return str;
         }
+
+        #endregion
+
+        #region Fill
 
         public void FillNonGenericCollection(int countOfElementsToFilling = -1)
         {
@@ -95,6 +101,45 @@ namespace BLL
             }
         }
 
+        #endregion
+
+        #region Delete
+
+        public void DeleteInNonGenericCollectionAt(int index)
+        {
+            DeleteAt(_nonGenericCollection, index);
+        }
+
+        public void DeleteInGenericCollectionAt(int index)
+        {
+            DeleteAt(_genericCollection, index);
+        }
+
+        public void DeleteInOrdinaryArrayAt(int index)
+        {
+            DeleteAt(_ordinaryArray, index);
+        }
+
+        private void DeleteAt(IMyCollection collection, int index)
+        {
+            collection.DeleteAt(index);
+        }
+
+        public void DeleteLastInNonGenericCollection()
+        {
+            DeleteLast(_nonGenericCollection);
+        }
+
+        public void DeleteLastInGenericCollection()
+        {
+            DeleteLast(_genericCollection);
+        }
+
+        public void DeleteLastInOrdinaryArray()
+        {
+            DeleteLast(_ordinaryArray);
+        }
+
         public void DeleteLastInAllCollections()
         {
             DeleteLast(_nonGenericCollection);
@@ -112,6 +157,10 @@ namespace BLL
             _binaryTree.Delete();
         }
 
+        #endregion
+
+        #region Refresh
+
         public void RefreshAll()
         {
             Refresh(_nonGenericCollection);
@@ -124,29 +173,37 @@ namespace BLL
             myCollection.Refresh();
         }
 
-        public string FindInNonGenericCollection()
+        #endregion
+
+        #region Find
+
+        public string FindInNonGenericCollection(Rectangle rectangleToFind = null)
         {
-            return Find(_nonGenericCollection);
+            return Find(_nonGenericCollection, rectangleToFind);
         }
 
-        public string FindInGenericCollection()
+        public string FindInGenericCollection(Rectangle rectangleToFind = null)
         {
-            return Find(_genericCollection);
+            return Find(_genericCollection, rectangleToFind);
         }
 
-        public string FindInOrdinaryArray()
+        public string FindInOrdinaryArray(Rectangle rectangleToFind = null)
         {
-            return Find(_ordinaryArray);
+            return Find(_ordinaryArray, rectangleToFind);
         }
 
-        public string FindInBinaryTree()
+        public string FindInBinaryTree(Rectangle rectangleToFind = null)
         {
+            _rectangleToFind = rectangleToFind ?? _rectangleToFind;
             return _binaryTree.Find(_rectangleToFind)?.ToString() ?? "Елемент не знайдено";
         }
 
-        private string Find(IMyCollection collection)
+        private string Find(IMyCollection collection, Rectangle rectangleToFind = null)
         {
+            _rectangleToFind = rectangleToFind ?? _rectangleToFind;
             return collection.Find(_rectangleToFind)?.ToString() ?? "Елемент не знайдено";
         }
+
+        #endregion
     }
 }
